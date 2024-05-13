@@ -13,3 +13,4 @@ Route::get('/test', function () {
 Route::get('/template', function () {
     return view('layouts.template');
 });
+Route::resource('/category', App\Http\Controllers\CategoryController::class);
