@@ -55,6 +55,8 @@
         </div>
     </div>
     @include('categories.components.modal-create')
+    @include('categories.components.modal-edit')
+    @include('categories.components.delete-post')
 </body>
 
 </html>
