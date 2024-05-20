@@ -1,7 +1,7 @@
 <script>
     $('body').on('click', '#btn-delete-category', function() {
 
-        let post_id = $(this).data('id');
+        let category_id = $(this).data('id');
         let token = $("meta[name='csrf-token']").attr("content");
 
         Swal.fire({
@@ -14,7 +14,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: `/category/${post_id}`,
+                    url: `/category/${category_id}`,
                     type: "DELETE",
                     cache: false,
                     data: {
@@ -28,7 +28,7 @@
                             showConfirmButton: false,
                             timer: 3000
                         });
-                        $(`#index_${post_id}`).remove();
+                        $(`#index_${category_id}`).remove();
                     }
                 });
             }

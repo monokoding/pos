@@ -23,6 +23,13 @@
                     <div class="alert alert-danger mt-2 d-none" role="alert" id="alert-description"></div>
                 </div>
 
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">TUTUP</button>
@@ -46,7 +53,6 @@
 
         //define variable
         let name = $('#name').val();
-        console.log(name);
         let description = $('#description').val();
         let token = $("meta[name='csrf-token']").attr("content");
 

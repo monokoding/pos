@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Laravel Ajax CRUD</title>
+    <title>POS (Point Of Sales)</title>
     <style>
         body {
             background-color: lightgray !important;
@@ -25,39 +25,44 @@
                 <div class="card border-0 shadow-sm rounded-md mt-4">
                     <div class="card-body">
 
-                        <a href="javascript:void(0)" class="btn btn-success mb-2" id="btn-create-category">TAMBAH</a>
+                        <a href="javascript:void(0)" class="btn btn-success mb-2" id="btn-create-product">TAMBAH</a>
 
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Description</th>
+                                    <th>Nama</th>
+                                    <th>Deskripsi</th>
+                                    <th>Kategori</th>
+                                    <th>Stok</th>
+                                    <th>Harga</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody id="table-categories">
-                                @foreach ($categories as $category)
-                                    <tr id="index_{{ $category->id }}">
-                                        <td>{{ $category->name }}</td>
-                                        <td>{{ $category->description }}</td>
+                            <tbody id="table-products">
+                                @foreach ($products as $product)
+                                    <tr id="index_{{ $product->id }}">
+                                        <td>{{ $product->nama }}</td>
+                                        <td>{{ $product->deskripsi }}</td>
+                                        <td>{{ $product->id_kategori }}</td>
+                                        <td>{{ $product->stok }}</td>
+                                        <td>{{ $product->harga }}</td>
                                         <td class="text-center">
-                                            <a href="javascript:void(0)" id="btn-edit-category"
-                                                data-id="{{ $category->id }}" class="btn btn-primary btn-sm">EDIT</a>
-                                            <a href="javascript:void(0)" id="btn-delete-category"
-                                                data-id="{{ $category->id }}" class="btn btn-danger btn-sm">DELETE</a>
+                                            <a href="javascript:void(0)" id="btn-edit-product"
+                                                data-id="{{ $product->id }}" class="btn btn-primary btn-sm">EDIT</a>
+                                            <a href="javascript:void(0)" id="btn-delete-product"
+                                                data-id="{{ $product->id }}" class="btn btn-danger btn-sm">DELETE</a>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    @include('categories.components.modal-create')
-    @include('categories.components.modal-edit')
-    @include('categories.components.delete-category')
+    @include('products.components.modal-create')
+    @include('products.components.modal-edit')
+    @include('products.components.delete-product')
 </body>
 
 </html>
